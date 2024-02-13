@@ -55,4 +55,5 @@ public class TextLine implements TextBlock {
     return this.line.length();
   } // width()
 
+
 } // class TextLine
