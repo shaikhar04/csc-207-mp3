@@ -16,19 +16,25 @@ public class Tests {
   @Test
   public void tuncatedTest() throws Exception {
     TextBlock tb1 = new TextLine("Hello, World");
+    TextBlock empty = new TextLine("");
     int maxWidth = 5;
     
-    TextBlock truncatedBlock = new Truncated(tb1, 5);
-
+    TextBlock truncatedBlock = new Truncated(tb1, maxWidth);
     assertEquals("Truncated shortens to correct width", truncatedBlock.width(), maxWidth) ;
+    
+    TextBlock emptyTextBlock = new Truncated(empty, 0);
+    assertEquals("Truncated works with width 0", emptyTextBlock.width(), 0) ;
+
   }
 
   @Test
   public void centeredTest () throws Exception {
       TextBlock tb1 = new TextLine("My name is Sam");
       TextBlock centered = new Centered(tb1, 20);
+      
       assertEquals("Centered creates block of correct width", centered.width(), 20);
 
+      // Checking for correct spacing row by row
       String currentRow;
       String message;
       for (int i = 0; i < centered.height(); i++) {
@@ -43,8 +49,10 @@ public class Tests {
   public void rightJustifiedTest() throws Exception {
     TextBlock tb1 = new TextLine("My name is Sam");
     TextBlock rightJustifiedBlock = new RightJustified(tb1, 20);
+
     assertEquals("rightJustified creates block of correct width", rightJustifiedBlock.width(), 20);
 
+    // Checking for correct spacing row by row
     String currentRow;
     String message;
     for (int i = 0; i < rightJustifiedBlock.height(); i++) {
@@ -58,8 +66,10 @@ public class Tests {
   public void leftJustifiedTest() throws Exception {
     TextBlock tb1 = new TextLine("My name is Sam");
     TextBlock leftJustifiedBlock = new LeftJustified(tb1, 20);
+    
     assertEquals("leftJustified creates block of correct width", leftJustifiedBlock.width(), 20);
 
+    // Checking for correct spacing row by row
     String currentRow;
     String message;
     for (int i = 0; i < leftJustifiedBlock.height(); i++) {
@@ -78,6 +88,9 @@ public class Tests {
     
     assertFalse("Horizontally flipping once changes the block", TBUtils.equals(tb, flippedOnce));
     assertTrue("Horizontally flipping twice gives the same block", TBUtils.equals(tb, flippedTwice));
+
+    TextBlock emptyTextBlock = new HorizontallyFlipped(new TextLine(""));
+    assertEquals("HorizontallyFlipped works with empty block", emptyTextBlock.width(), 0);
   }
 
   @Test
@@ -92,16 +105,21 @@ public class Tests {
     
     assertFalse("Vertically flipping once changes the block", TBUtils.equals(tb, flippedOnce));
     assertTrue("Vertically flipping twice gives the same block", TBUtils.equals(tb, flippedTwice));
+
+    TextBlock emptyTextBlock = new VerticallyFlipped(new TextLine(""));
+    assertEquals("HorizontallyFlipped works with empty block", emptyTextBlock.width(), 0);
   }
 
   @Test
   public void equalsTest() throws Exception {
     TextBlock tb1 = new TextLine("Baseball");
     TextBlock tb2 = new TextLine("Baseball");
+    TextBlock verticallyFlippedtb = new VerticallyFlipped(tb1);
     
     TextBlock tb3 = new TextLine("Golf");
     
     assertTrue("Returns true if the text is the same", TBUtils.equals(tb1, tb2));
+    assertTrue("Returns true if the text is the same", TBUtils.equals(tb1, verticallyFlippedtb));
     assertFalse("Returns false if the text is different", TBUtils.equals(tb1, tb3));
   }
 
