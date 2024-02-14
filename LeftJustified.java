@@ -16,8 +16,8 @@ public class LeftJustified implements TextBlock {
   // | Constructor |
   // +-------------+
   public LeftJustified(TextBlock inputBlock, int maxWidth) throws Exception {
-    if (inputBlock.width() < maxWidth) {
-      throw new Exception("Width provided must be shorter than block");
+    if (inputBlock.width() > maxWidth) {
+      throw new Exception("Width provided must be longer than block");
     }
     this.maxWidth = maxWidth;
     this.inputBlock = inputBlock;

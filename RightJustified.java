@@ -16,8 +16,8 @@ public class RightJustified implements TextBlock {
   // | Constructor |
   // +-------------+
   public RightJustified(TextBlock inputBlock, int maxWidth) throws Exception {
-    if (inputBlock.width() < maxWidth) {
-      throw new Exception("Width provided must be shorter than block");
+    if (inputBlock.width() > maxWidth) {
+      throw new Exception("Width provided must be longer than block");
     }
     this.maxWidth = maxWidth;
     this.inputBlock = inputBlock;
