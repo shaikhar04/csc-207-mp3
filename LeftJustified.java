@@ -2,7 +2,7 @@
  * Creates a new block of specified width and justifies passed block to the right.
  * 
  * @author Arsal Shaikh
- * @author Zack
+ * @author Zack Abdilahi
  */
 public class LeftJustified implements TextBlock {
 
@@ -55,5 +55,13 @@ public class LeftJustified implements TextBlock {
   public int width() {
     return maxWidth;
   } // width()
+
+  /**
+   * Determine if the two blocks were built the same way.
+   */
+  public boolean eqv(TextBlock other) {
+    return (other instanceof LeftJustified) && 
+    (this.inputBlock.eqv(((LeftJustified)other).inputBlock));
+  } // eqv(TextBlock)
 
 } // class LeftJustified

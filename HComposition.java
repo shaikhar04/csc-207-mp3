@@ -83,4 +83,14 @@ public class HComposition implements TextBlock {
     return this.left.width() + this.right.width();
   } // width()
 
+  /**
+   * Determine if the two blocks were built the same way.
+   */
+  public boolean eqv(TextBlock other) {
+    return (other instanceof HComposition) && 
+    (this.left.eqv(((HComposition)other).left)) && 
+    (this.right.eqv(((HComposition) other).left));
+  } // eqv(TextBlock)
+
+
 } // class HComposition

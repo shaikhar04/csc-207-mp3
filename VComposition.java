@@ -2,6 +2,8 @@
  * The vertical composition of two text blocks.
  * 
  * @author Samuel A. Rebelsky
+ * @author Arsal Shaikh
+ * @author Zack Abdilahi
  */
 public class VComposition implements TextBlock {
   // +--------+------------------------------------------------------------
@@ -83,5 +85,14 @@ public class VComposition implements TextBlock {
     // blocks.
     return Math.max(this.top.width(), this.bottom.width());
   } // width()
+
+  /**
+   * Determine if the two blocks were built the same way.
+   */
+  public boolean eqv(TextBlock other) {
+    return (other instanceof VComposition) && 
+    (this.top.eqv(((VComposition)other).top)) && 
+    (this.bottom.eqv(((VComposition) other).bottom));
+  } // eqv(TextBlock)
 
 } // class VComposition

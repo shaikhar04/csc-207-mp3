@@ -2,7 +2,7 @@
  * Truncates a block into a specified width
  * 
  * @author Arsal Shaikh
- * @author Zack
+ * @author Zack Abdilahi
  */
 public class Truncated implements TextBlock {
 
@@ -49,4 +49,12 @@ public class Truncated implements TextBlock {
   public int width() {
     return maxWidth;
   } // width()
+  
+  /**
+   * Determine if the two blocks were built the same way.
+   */
+  public boolean eqv(TextBlock other) {
+    return (other instanceof Truncated) && 
+    (this.inputBlock.eqv(((Truncated)other).inputBlock));
+  } // eqv(TextBlock)
 }

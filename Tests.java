@@ -1,6 +1,5 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -106,15 +105,15 @@ public class Tests {
     assertFalse("Returns false if the text is different", TBUtils.equals(tb1, tb3));
   }
 
-  // @Test
-  // public void eqvTest() throws Exception {
-  //   TextBlock notFlipped = new TextLine("Soccer");
-  //   TextBlock flippedTwice = new HorizontallyFlipped(new HorizontallyFlipped(new TextLine("Soccer")));
-  //   TextBlock alsoFlippedTwice = new HorizontallyFlipped(new HorizontallyFlipped(new TextLine("Soccer")));
+  @Test
+  public void eqvTest() throws Exception {
+    TextBlock notFlipped = new TextLine("Soccer");
+    TextBlock flippedTwice = new HorizontallyFlipped(new HorizontallyFlipped(new TextLine("Soccer")));
+    TextBlock alsoFlippedTwice = new HorizontallyFlipped(new HorizontallyFlipped(new TextLine("Soccer")));
     
-  //   assertTrue("Returns true if the blocks were built in the same way", TBUtils.eqv(flippedTwice, alsoFlippedTwice));
-  //   assertFalse("Returns false if the blocks were built in different ways", TBUtils.eqv(flippedTwice, notFlipped));
-  // }
+    assertTrue("Returns true if the blocks were built in the same way", TBUtils.eqv(flippedTwice, alsoFlippedTwice));
+    assertFalse("Returns false if the blocks were built in different ways", TBUtils.eqv(flippedTwice, notFlipped));
+  }
 
 
   @Test

@@ -2,7 +2,7 @@
  * Horizontally flips a TextBlock.
  * 
  * @author Arsal Shaikh
- * @author Zack
+ * @author Zack Abdilahi
  */
 public class HorizontallyFlipped implements TextBlock {
   // +--------+------------------------------------------------------------
@@ -56,5 +56,13 @@ public class HorizontallyFlipped implements TextBlock {
   public int width() {
     return this.inputBlock.width();
   } // width()
+
+  /**
+   * Determine if the two blocks were built the same way.
+   */
+  public boolean eqv(TextBlock other) {
+    return (other instanceof HorizontallyFlipped) && 
+    (this.inputBlock.eqv(((HorizontallyFlipped)other).inputBlock));
+  } // eqv(TextBlock)
 
 } // class HorizontallyFlipped

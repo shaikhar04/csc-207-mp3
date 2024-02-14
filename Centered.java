@@ -58,4 +58,11 @@ public class Centered implements TextBlock {
     return maxWidth;
   } // width()
 
+  /**
+   * Determine if the two blocks were built the same way.
+   */
+  public boolean eqv(TextBlock other) {
+    return (other instanceof Centered) && (this.inputBlock.eqv(((Centered)other).inputBlock));
+  }
+
 } // class VComposition

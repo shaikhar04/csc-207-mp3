@@ -5,7 +5,7 @@ import java.io.PrintWriter;
  * 
  * @author Samuel A. Rebelsky
  * @author Arsal Shaikh
- * @author Zack
+ * @author Zack Abdilahi
  */
 public class TBUtils {
   // +--------------+------------------------------------------------------
@@ -86,15 +86,11 @@ public class TBUtils {
     return true;
   } // equals(TextBlock, Textblock)
   
-  // TODO
+  
   // Checks if two TextBlocks were built the same way.
-  // public static boolean eqv(TextBlock t1, TextBlock t2) {
-  //   if ((t1.getClass().equals("TextLine")) && (t2.getClass().equals("TextLine"))) {
-  //     return true;
-  //   }
-
-  //   return (t1 instanceof t2.getClass()) && (eqv(t1, (t2.getClass()) t2.inputBlock));
-  // }
+  public static boolean eqv(TextBlock t1, TextBlock t2) {
+    return t1.eqv(t2);
+  }
 
   // Checks if the two objects occupy the same memory location.
   public static boolean eq(TextBlock t1, TextBlock t2) {

@@ -55,5 +55,11 @@ public class TextLine implements TextBlock {
     return this.line.length();
   } // width()
 
+  /**
+   * Determine if the two blocks were built the same way.
+   */
+  public boolean eqv(TextBlock other) {
+    return (other instanceof TextLine);
+  } // eqv(TextBlock)
 
 } // class TextLine

@@ -2,7 +2,7 @@
  * Vertically flips a TextBlock.
  * 
  * @author Arsal Shaikh
- * @author Zack
+ * @author Zack Abdilahi
  */
 public class VerticallyFlipped implements TextBlock {
   // +--------+------------------------------------------------------------
@@ -50,5 +50,12 @@ public class VerticallyFlipped implements TextBlock {
   public int width() {
     return this.inputBlock.width();
   } // width()
+
+  /**
+   * Determine if the two blocks were built the same way.
+   */
+  public boolean eqv(TextBlock other) {
+    return (other instanceof VerticallyFlipped) && (this.inputBlock.eqv(((VerticallyFlipped)other).inputBlock));
+  } // eqv(TextBlock)
 
 } // class VerticallyFlipped
