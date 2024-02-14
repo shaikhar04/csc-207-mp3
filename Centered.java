@@ -63,6 +63,6 @@ public class Centered implements TextBlock {
    */
   public boolean eqv(TextBlock other) {
     return (other instanceof Centered) && (this.inputBlock.eqv(((Centered)other).inputBlock));
-  }
+  } // eqv(TextBlock)
 
 } // class VComposition

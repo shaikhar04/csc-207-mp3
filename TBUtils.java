@@ -68,6 +68,7 @@ public class TBUtils {
     return lotsOfSpaces.substring(0, len);
   } // spaces(int)
 
+  
   // Checks if two TextBlocks have the same text
   public static boolean equals(TextBlock t1, TextBlock t2) throws Exception {
     if (t1.height() != t2.height()) {
@@ -90,7 +91,7 @@ public class TBUtils {
   // Checks if two TextBlocks were built the same way.
   public static boolean eqv(TextBlock t1, TextBlock t2) {
     return t1.eqv(t2);
-  }
+  } // eqv(TextBlock, TextBlock)
 
   // Checks if the two objects occupy the same memory location.
   public static boolean eq(TextBlock t1, TextBlock t2) {

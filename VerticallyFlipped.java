@@ -9,7 +9,7 @@ public class VerticallyFlipped implements TextBlock {
   // | Fields |
   // +--------+
 
-
+  // Repersents the unflipped block
   TextBlock inputBlock;
 
   // +--------------+------------------------------------------------------
